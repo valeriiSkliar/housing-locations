@@ -19,6 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
 import {PaginationModule} from "./shered/pagination/pagination.module";
 import {LocationFilterModule} from "./shered/location-filter/location-filter.module";
 import { LocationListManagementComponent } from './profile/location-list-management/location-list-management.component';
+import { LoaderComponent } from './shered/loader/loader.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { LocationListManagementComponent } from './profile/location-list-managem
         ProfileComponent,
         Page404Component,
         HeaderComponent,
-        LocationListManagementComponent
+        LocationListManagementComponent,
+        LoaderComponent
     ],
     imports: [
         BrowserModule,

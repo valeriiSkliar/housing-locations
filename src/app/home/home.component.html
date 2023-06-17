@@ -1,4 +1,9 @@
+
 <section class="results container p-5 m-auto">
+    <app-loader
+        class="m-auto align-self-center"
+        *ngIf="!housingLocationList.length"
+    ></app-loader>
     <div
         *appPagination="
         let locations of housingLocationList | locationFilter : 'city' : filterValue
@@ -18,8 +23,11 @@
 
         </app-housing-location>
         </div>
-    <div class="pagination-container">
-        <button class="pagination-control btn btn-outline-primary" (click)="back()">Back</button>
+    <div
+        *ngIf="locations"
+        class="pagination-container">
+        <button
+            class="pagination-control btn btn-outline-primary" (click)="back()">Back</button>
         <div class="page-indexes">
             <button
                 class="btn btn-outline-primary"
@@ -30,7 +38,8 @@
                 {{ index + 1 }}
             </button>
         </div>
-        <button class="pagination-control btn btn-outline-primary" (click)="next()">Next</button>
+        <button
+            class="pagination-control btn btn-outline-primary" (click)="next()">Next</button>
     </div>
 </div>
 
