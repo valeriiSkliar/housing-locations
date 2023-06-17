@@ -82,6 +82,7 @@ export class PaginationDirective <T> implements OnChanges, OnInit, OnDestroy{
             selectedIndex: (index: number) => {
                 this.selectedIndex(index);
             },
+            chunkLength: this.chunkArray.length
         };
     }
 

@@ -6,4 +6,5 @@ export interface PaginationContext<T>{
     next: () => void,
     back: () => void,
     selectedIndex: (index: number) => void,
+    chunkLength:number
 }

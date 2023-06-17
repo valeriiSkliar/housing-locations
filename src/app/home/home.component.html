@@ -1,9 +1,5 @@
 
 <section class="results container p-5 m-auto">
-    <app-loader
-        class="m-auto align-self-center"
-        *ngIf="!housingLocationList.length"
-    ></app-loader>
     <div
         *appPagination="
         let locations of housingLocationList | locationFilter : 'city' : filterValue
@@ -13,8 +9,13 @@
 		let pageIndexes = pageIndexes;
 		let selectedIndex = selectedIndex;
 		let activeIndex = index
+		let chunkLength = index
         "
         >
+        <app-loader
+            class="m-auto align-self-center"
+            *ngIf="housingLocationList.length === 0"
+        ></app-loader>
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4 row-cols-xxl-4">
         <app-housing-location
             class="col mb-4"
@@ -23,24 +24,24 @@
 
         </app-housing-location>
         </div>
-    <div
-        *ngIf="locations"
-        class="pagination-container">
-        <button
-            class="pagination-control btn btn-outline-primary" (click)="back()">Back</button>
-        <div class="page-indexes">
+        <div
+            *ngIf="!(housingLocationList.length === 0)"
+            class="pagination-container">
             <button
-                class="btn btn-outline-primary"
-                *ngFor="let index of pageIndexes"
-                [class.active]="activeIndex === index"
-                (click)="selectedIndex(index)"
-            >
-                {{ index + 1 }}
-            </button>
+                class="pagination-control btn btn-outline-primary" (click)="back()">Back</button>
+            <div class="page-indexes">
+                <button
+                    class="btn btn-outline-primary"
+                    *ngFor="let index of pageIndexes"
+                    [class.active]="activeIndex === index"
+                    (click)="selectedIndex(index)"
+                >
+                    {{ index + 1 }}
+                </button>
+            </div>
+            <button
+                class="pagination-control btn btn-outline-primary" (click)="next()">Next</button>
         </div>
-        <button
-            class="pagination-control btn btn-outline-primary" (click)="next()">Next</button>
-    </div>
 </div>
 
 </section>

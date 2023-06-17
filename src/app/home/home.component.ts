@@ -12,7 +12,6 @@ import {FilterLocationValueService} from "../services/filter-location-value.serv
 })
 export class HomeComponent implements OnInit, OnDestroy {
     housingLocationList: any = [];
-    filteredLocationList: any = [];
     filterValue!:string;
     private subscription?: Subscription;
 
@@ -20,13 +19,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         private firebaseService: FirebaseService,
         private searchService: SearchService,
         private filterService: FilterLocationValueService,
-    ) { }
+    ) {
+    }
 
     async ngOnInit(): Promise<void> {
         this.housingLocationList = await this.firebaseService.getHousingList();
-        this.filteredLocationList = this.firebaseService.housingList;
         this.subscription = this.filterService.filterTerm$
-            .subscribe(newValue => this.filterValue = newValue)
+            .subscribe(newValue => this.filterValue = newValue);
 
     }
 
