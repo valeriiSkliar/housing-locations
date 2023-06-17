@@ -1,0 +1,8 @@
+<div class="container">
+    <div *ngIf="authService.isLoggedIn; else loggedOut">
+        <a [routerLink]="['/profile']">{{ authService.username ?? loggedUser}}</a>
+    </div>
+    <ng-template #loggedOut>
+        <a [routerLink]="['/login']">Sing in / Sing Up</a>
+    </ng-template>
+</div>

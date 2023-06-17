@@ -1,0 +1,13 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+input{
+    height: 25px;
+    margin-bottom: 25px;
+}
+.previewImage{
+    width: 100px;
+    height: auto;
+}

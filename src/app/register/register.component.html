@@ -1,0 +1,19 @@
+<div class="login-container container m-5 p-5 m-auto w-75">
+    <h2>Register</h2>
+    <form
+        class="d-flex flex-column gap-4"
+        #RegisterForm="ngForm" (ngSubmit)="onSubmit(RegisterForm)">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" name="email" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" class="form-control" name="password" ngModel required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!RegisterForm.form.valid">Register</button>
+        </div>
+    </form>
+    <p>Have an account? <a routerLink="/login">Login here</a></p>
+</div>

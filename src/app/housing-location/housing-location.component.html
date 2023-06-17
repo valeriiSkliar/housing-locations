@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center">
+    <div class="card custom-card" style="width: 18rem;">
+        <img [src]="housingLocation.photo" class="card-img-top" alt="Exterior photo of {{housingLocation.name}}">
+        <div class="card-body">
+            <h5 class="card-title responsive-text">{{housingLocation.name}}</h5>
+            <p class="card-text">{{housingLocation.city}}, {{housingLocation.state}}</p>
+            <a class="btn btn-primary" [routerLink]="['/details', housingLocation.id]">Learn more...</a>
+        </div>
+    </div>
+</div>

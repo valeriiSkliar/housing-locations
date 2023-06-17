@@ -1,0 +1,39 @@
+<section class="results container p-5 m-auto">
+    <div
+        *appPagination="
+        let locations of housingLocationList | locationFilter : 'city' : filterValue
+        chunkSize: 8;
+		let back = back;
+		let next = next;
+		let pageIndexes = pageIndexes;
+		let selectedIndex = selectedIndex;
+		let activeIndex = index
+        "
+        >
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4 row-cols-xxl-4">
+        <app-housing-location
+            class="col mb-4"
+            *ngFor="let housingLocation of locations"
+                [housingLocation]="housingLocation">
+
+        </app-housing-location>
+        </div>
+    <div class="pagination-container">
+        <button class="pagination-control btn btn-outline-primary" (click)="back()">Back</button>
+        <div class="page-indexes">
+            <button
+                class="btn btn-outline-primary"
+                *ngFor="let index of pageIndexes"
+                [class.active]="activeIndex === index"
+                (click)="selectedIndex(index)"
+            >
+                {{ index + 1 }}
+            </button>
+        </div>
+        <button class="pagination-control btn btn-outline-primary" (click)="next()">Next</button>
+    </div>
+</div>
+
+</section>
+<app-add-button></app-add-button>
+

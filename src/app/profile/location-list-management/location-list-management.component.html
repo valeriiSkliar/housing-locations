@@ -1,0 +1,44 @@
+<div class="container m-auto pb-5">
+    <h2 class="ms-5">List of all locations</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="col-1 text-center" scope="col">ID</th>
+            <th class="col-1 text-center" scope="col">Image</th>
+            <th class="col text-center" scope="col">Name</th>
+            <th class="col-1 text-center" scope="col">Controls</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let location of houseLocations">
+            <th scope="row" class="align-middle text-center">{{ location.id }}</th>
+            <td class="p-3">
+                <img class="img-fluid" [src]="location.photo" [alt]="location.id" />
+            </td>
+            <td class="align-middle">
+                <b class="ps-5">{{ location.name }}</b>
+            </td>
+                        <td class="align-middle text-center">
+                            <div class="flex-row flex-nowrap d-flex">
+                                <button
+                                    name="remove"
+                                    style="--bs-btn-padding-y: 0.2rem; --bs-btn-padding-x: 0.3rem; --bs-btn-font-size: 0.55rem"
+                                    (click)="removeLocation(location.id)"
+                                    class="buttonsControl btn btn-outline-danger"
+                                >
+                                    Remove
+                                </button>
+<!--                                <button-->
+<!--                                    style="&#45;&#45;bs-btn-padding-y: 0.2rem; &#45;&#45;bs-btn-padding-x: 0.3rem; &#45;&#45;bs-btn-font-size: 0.55rem"-->
+<!--                                    (click)="emitIdAndActionName({ id: location.id, action: $event })"-->
+<!--                                    class="buttonsControl ms-3 btn btn-outline-primary"-->
+<!--                                    name="edit"-->
+<!--                                >-->
+<!--                                    Edit-->
+<!--                                </button>-->
+                            </div>
+                        </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+.container{
+    width: fit-content;
+    padding: 8px 15px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    transition: 0.5s;
+    color: black;
+}
+.container:hover {
+    transition: 0.3s;
+    background-color: darkorange;
+}
+.container a{
+    text-decoration: none;
+    color: #3a3a3a;
+}
